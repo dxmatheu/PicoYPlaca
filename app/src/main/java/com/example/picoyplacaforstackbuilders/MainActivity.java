@@ -1,45 +1,87 @@
 package com.example.picoyplacaforstackbuilders;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
+import android.text.InputType;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.NumberPicker;
+import android.widget.TimePicker;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import java.text.SimpleDateFormat;
+import java.time.Year;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+
+    EditText DateAndTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        NumberPicker LicenseDigit1 = findViewById(R.id.LicenseDigit1);
+        NumberPicker LicenseDigit2 = findViewById(R.id.LicenseDigit2);
+        NumberPicker LicenseDigit3 = findViewById(R.id.LicenseDigit3);
+        NumberPicker LicenseDigit4 = findViewById(R.id.LicenseDigit4);
+
+        LicenseDigit1.setMaxValue(9);
+        LicenseDigit1.setMinValue(0);
+        LicenseDigit2.setMinValue(0);
+        LicenseDigit3.setMaxValue(9);
+        LicenseDigit2.setMaxValue(9);
+        LicenseDigit3.setMinValue(0);
+        LicenseDigit4.setMinValue(0);
+        LicenseDigit4.setMaxValue(9);
+
+        DateAndTime = findViewById(R.id.DateAndTimeET);
+        DateAndTime.setInputType(InputType.TYPE_NULL);
+
+        DateAndTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowDateTimeDialog(DateAndTime);
+            }
+        });
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    private void ShowDateTimeDialog(EditText dateAndTime) {
+        final Calendar calendar = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(Calendar.YEAR,year);
+                calendar.set(Calendar.MONTH,month);
+                calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+
+                TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                        calendar.set(Calendar.MINUTE,minute);
+
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd HH:mm");
+
+                        DateAndTime.setText(dateFormat.format(calendar.getTime()));
+
+                    }
+                };
+
+                new TimePickerDialog(MainActivity.this, timeSetListener,
+                        calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false).show();
+            }
+        };
+
+        new DatePickerDialog(MainActivity.this, dateSetListener,
+                calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

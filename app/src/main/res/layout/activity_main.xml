@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,8 +11,87 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10sp"
-        android:text="Input DATA:"
-        android:textSize="24sp" />
+        android:text="Input DATA for PICO y PLACA check"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <NumberPicker
+        android:id="@+id/LicenseDigit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toEndOf="@+id/LicenseDigit1"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/LicensePlateTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="108dp"
+        android:text="License Plate"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <NumberPicker
+        android:id="@+id/LicenseDigit1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toEndOf="@+id/LicensePlateTV"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <NumberPicker
+        android:id="@+id/LicenseDigit3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toEndOf="@+id/LicenseDigit2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <NumberPicker
+        android:id="@+id/LicenseDigit4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toEndOf="@+id/LicenseDigit3"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/DateAndTimePrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="160dp"
+        android:text="Date and Time:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LicensePlateTV" />
+
+    <EditText
+        android:id="@+id/DateAndTimeET"
+        android:layout_width="239dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="76dp"
+        android:hint="YY-MM-DD HH:mm"
+        app:layout_constraintStart_toEndOf="@+id/DateAndTimePrompt"
+        app:layout_constraintTop_toBottomOf="@+id/LicenseDigit3" />
+
+    <Button
+        android:id="@+id/CheckBtn"
+        android:layout_width="174dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="108dp"
+        android:text="Check PICO y PLACA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DateAndTimeET" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

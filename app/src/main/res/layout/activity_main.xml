@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10sp"
-        android:text="selecciona un continente para consultar los ultimos 20 terremotos en esa region:"
+        android:text="Input DATA:"
         android:textSize="24sp" />
 
 

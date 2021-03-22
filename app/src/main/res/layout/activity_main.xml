@@ -62,36 +62,58 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/DateAndTimePrompt"
+        android:id="@+id/DatePrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="160dp"
-        android:text="Date and Time:"
+        android:text="Date:"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LicensePlateTV" />
 
     <EditText
-        android:id="@+id/DateAndTimeET"
+        android:id="@+id/TimeET"
         android:layout_width="239dp"
         android:layout_height="47dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="76dp"
-        android:hint="YY-MM-DD HH:mm"
-        app:layout_constraintStart_toEndOf="@+id/DateAndTimePrompt"
-        app:layout_constraintTop_toBottomOf="@+id/LicenseDigit3" />
+        android:layout_marginTop="40dp"
+        android:hint="HH:MM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toEndOf="@+id/TimePrompt"
+        app:layout_constraintTop_toBottomOf="@+id/DateET" />
+
+    <TextView
+        android:id="@+id/TimePrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:text="Time:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DatePrompt" />
+
+    <EditText
+        android:id="@+id/DateET"
+        android:layout_width="239dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="68dp"
+        android:hint="YY-MM-DD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toEndOf="@+id/DatePrompt"
+        app:layout_constraintTop_toBottomOf="@+id/LicenseDigit2" />
 
     <Button
         android:id="@+id/CheckBtn"
         android:layout_width="174dp"
         android:layout_height="55dp"
-        android:layout_marginTop="108dp"
         android:text="Check PICO y PLACA"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DateAndTimeET" />
+        app:layout_constraintTop_toBottomOf="@+id/TimeET" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

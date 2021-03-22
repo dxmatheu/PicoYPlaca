@@ -21,9 +21,10 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText DateAndTime;
+    EditText TimeET;
+    EditText DateET;
     Button CheckBtn;
-    private LicensePlateAndDateInfo LPAndDateInfo = LicensePlateAndDateInfo.getInstance();
+    private final LicensePlateAndDateInfo LPAndDateInfo = LicensePlateAndDateInfo.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DateAndTime = findViewById(R.id.DateAndTimeET);
-        DateAndTime.setInputType(InputType.TYPE_NULL);
+        TimeET = findViewById(R.id.TimeET);
+        TimeET.setInputType(InputType.TYPE_NULL);
 
-        DateAndTime.setOnClickListener(new View.OnClickListener() {
+        TimeET.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShowDateTimeDialog(DateAndTime);
+                ShowTimeDialog(TimeET);
             }
         });
 
@@ -98,39 +99,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void ShowDateTimeDialog(EditText dateAndTime) {
+    private void ShowTimeDialog(EditText TimeET) {
         final Calendar calendar = Calendar.getInstance();
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+        TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                calendar.set(Calendar.YEAR,year);
-                calendar.set(Calendar.MONTH,month);
-                calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-                LPAndDateInfo.setDayOfWeek(calendar.get(Calendar.DAY_OF_WEEK));
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                LPAndDateInfo.setHour(calendar.get(Calendar.HOUR_OF_DAY));
+                calendar.set(Calendar.MINUTE,minute);
+                LPAndDateInfo.setMinute(calendar.get(Calendar.MINUTE));
 
-                TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                        LPAndDateInfo.setHour(calendar.get(Calendar.HOUR_OF_DAY));
-                        calendar.set(Calendar.MINUTE,minute);
-                        LPAndDateInfo.setMinute(calendar.get(Calendar.MINUTE));
+                SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+                TimeET.setText(dateFormat.format(calendar.getTime()));
 
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd HH:mm");
-
-                        DateAndTime.setText(dateFormat.format(calendar.getTime()));
-
-                    }
-                };
-
-                new TimePickerDialog(MainActivity.this, timeSetListener,
-                        calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false).show();
             }
         };
 
-        new DatePickerDialog(MainActivity.this, dateSetListener,
-                calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
-
+        new TimePickerDialog(MainActivity.this, timeSetListener,
+                calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE),
+                        false).show();
     }
-
 }

@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     private void ButtonClicked(View view) {
 
         if(LPandDateInfo.DayOfWeek != -1 && LPandDateInfo.Hour != -1){
-            startActivity(new Intent(this, ShowResult.class));
+            startActivity(new Intent(this, ResultActivity.class));
         }
         else{
             Toast.makeText(getApplicationContext(),"Please fill in a date first",Toast.LENGTH_SHORT).show();

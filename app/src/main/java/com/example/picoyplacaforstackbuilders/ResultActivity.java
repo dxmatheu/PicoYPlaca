@@ -1,20 +1,20 @@
 package com.example.picoyplacaforstackbuilders;
 
-import android.app.Activity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-
-public class ShowResult extends Activity {
+public class ResultActivity extends AppCompatActivity {
 
     private LicensePlateAndDateInfo LPAndDateInfo = LicensePlateAndDateInfo.getInstance();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_result);
+        setContentView(R.layout.activity_result);
 
         TextView LicensePlate = findViewById(R.id.LisencePlateTV);
         TextView DateAndTime = findViewById(R.id.DateAndTimeTV);

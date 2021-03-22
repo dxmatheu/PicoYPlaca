@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Please fill in a date first",Toast.LENGTH_SHORT).show();
         }
 
-        else if(LPAndDateInfo.Hour == -1){
+        else if(LPAndDateInfo.getHour() == -1){
             Toast.makeText(getApplicationContext(),"Please pick an hour",Toast.LENGTH_SHORT).show();
         }
         else{

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
 
-    private LicensePlateAndDateInfo LPAndDateInfo = LicensePlateAndDateInfo.getInstance();
+    private final LicensePlateAndDateInfo LPAndDateInfo = LicensePlateAndDateInfo.getInstance();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,77 +21,77 @@ public class ResultActivity extends AppCompatActivity {
         TextView DateAndTime = findViewById(R.id.DateAndTimeTV);
         TextView Result = findViewById(R.id.ResultTV);
 
-        LicensePlate.setText("XXX-" + LPAndDateInfo.Digit1 + LPAndDateInfo.Digit2 + LPAndDateInfo.Digit3 + LPAndDateInfo.Digit4);
+        LicensePlate.setText("XXX-" + LPAndDateInfo.getDigit1() + LPAndDateInfo.getDigit2() + LPAndDateInfo.getDigit3() + LPAndDateInfo.getDigit4());
 
-        if(LPAndDateInfo.DayOfWeek == 1){
-            if(LPAndDateInfo.Minute <= 9){
-                DateAndTime.setText("On: Sunday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+        if(LPAndDateInfo.getDayOfWeek() == 1){
+            if(LPAndDateInfo.getMinute() <= 9){
+                DateAndTime.setText("On: Sunday" + " at " + LPAndDateInfo.getHour() + "H0" + LPAndDateInfo.getMinute());
             }
             else
-                DateAndTime.setText("On: Sunday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+                DateAndTime.setText("On: Sunday" + " at " + LPAndDateInfo.getHour() + "H" + LPAndDateInfo.getMinute());
         }
-        else if(LPAndDateInfo.DayOfWeek == 2){
-            if(LPAndDateInfo.Minute <= 9){
-                DateAndTime.setText("On: Monday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+        else if(LPAndDateInfo.getDayOfWeek() == 2){
+            if(LPAndDateInfo.getMinute() <= 9){
+                DateAndTime.setText("On: Monday" + " at " + LPAndDateInfo.getHour() + "H0" + LPAndDateInfo.getMinute());
             }
             else
-                DateAndTime.setText("On: Monday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+                DateAndTime.setText("On: Monday" + " at " + LPAndDateInfo.getHour() + "H" + LPAndDateInfo.getMinute());
         }
-        else if(LPAndDateInfo.DayOfWeek == 3){
-            if(LPAndDateInfo.Minute <= 9){
-                DateAndTime.setText("On: Tuesday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+        else if(LPAndDateInfo.getDayOfWeek() == 3){
+            if(LPAndDateInfo.getMinute() <= 9){
+                DateAndTime.setText("On: Tuesday" + " at " + LPAndDateInfo.getHour() + "H0" + LPAndDateInfo.getMinute());
             }
             else
-                DateAndTime.setText("On: Tuesday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+                DateAndTime.setText("On: Tuesday" + " at " + LPAndDateInfo.getHour() + "H" + LPAndDateInfo.getMinute());
         }
-        else if(LPAndDateInfo.DayOfWeek == 4){
-            if(LPAndDateInfo.Minute <= 9){
-                DateAndTime.setText("On: Wednesday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+        else if(LPAndDateInfo.getDayOfWeek() == 4){
+            if(LPAndDateInfo.getMinute() <= 9){
+                DateAndTime.setText("On: Wednesday" + " at " + LPAndDateInfo.getHour() + "H0" + LPAndDateInfo.getMinute());
             }
             else
-                DateAndTime.setText("On: Wednesday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+                DateAndTime.setText("On: Wednesday" + " at " + LPAndDateInfo.getHour() + "H" + LPAndDateInfo.getMinute());
         }
-        else if(LPAndDateInfo.DayOfWeek == 5){
-            if(LPAndDateInfo.Minute <= 9){
-                DateAndTime.setText("On: Thursday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+        else if(LPAndDateInfo.getDayOfWeek() == 5){
+            if(LPAndDateInfo.getMinute() <= 9){
+                DateAndTime.setText("On: Thursday" + " at " + LPAndDateInfo.getHour() + "H0" + LPAndDateInfo.getMinute());
             }
             else
-                DateAndTime.setText("On: Thursday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+                DateAndTime.setText("On: Thursday" + " at " + LPAndDateInfo.getHour() + "H" + LPAndDateInfo.getMinute());
         }
-        else if(LPAndDateInfo.DayOfWeek == 6){
-            if(LPAndDateInfo.Minute <= 9){
-                DateAndTime.setText("On: Friday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+        else if(LPAndDateInfo.getDayOfWeek() == 6){
+            if(LPAndDateInfo.getMinute() <= 9){
+                DateAndTime.setText("On: Friday" + " at " + LPAndDateInfo.getHour() + "H0" + LPAndDateInfo.getMinute());
             }
             else
-                DateAndTime.setText("On: Friday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+                DateAndTime.setText("On: Friday" + " at " + LPAndDateInfo.getHour() + "H" + LPAndDateInfo.getMinute());
         }
-        else if(LPAndDateInfo.DayOfWeek == 7){
-            if(LPAndDateInfo.Minute <= 9){
-                DateAndTime.setText("On: Saturday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+        else if(LPAndDateInfo.getDayOfWeek() == 7){
+            if(LPAndDateInfo.getMinute() <= 9){
+                DateAndTime.setText("On: Saturday" + " at " + LPAndDateInfo.getHour() + "H0" + LPAndDateInfo.getMinute());
             }
             else
-                DateAndTime.setText("On: Saturday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+                DateAndTime.setText("On: Saturday" + " at " + LPAndDateInfo.getHour() + "H" + LPAndDateInfo.getMinute());
         }
 
-        if(LPAndDateInfo.Hour >= 7 && LPAndDateInfo.Hour <= 9 && LPAndDateInfo.Minute <= 30
-                || LPAndDateInfo.Hour >= 16 && LPAndDateInfo.Hour <= 19 && LPAndDateInfo.Minute <=30){
-            if((LPAndDateInfo.Digit4 == 1 || LPAndDateInfo.Digit4 == 2) && LPAndDateInfo.DayOfWeek == 2){
+        if(LPAndDateInfo.getHour() >= 7 && LPAndDateInfo.getHour() <= 9 && LPAndDateInfo.getMinute() <= 30
+                || LPAndDateInfo.getHour() >= 16 && LPAndDateInfo.getHour() <= 19 && LPAndDateInfo.getMinute() <=30){
+            if((LPAndDateInfo.getDigit4() == 1 || LPAndDateInfo.getDigit4() == 2) && LPAndDateInfo.getDayOfWeek() == 2){
                 Result.setText("CAN'T GO OUT");
                 Result.setTextColor(Color.RED);
             }
-            else if((LPAndDateInfo.Digit4 == 3 || LPAndDateInfo.Digit4 == 4) && LPAndDateInfo.DayOfWeek == 3){
+            else if((LPAndDateInfo.getDigit4() == 3 || LPAndDateInfo.getDigit4() == 4) && LPAndDateInfo.getDayOfWeek() == 3){
                 Result.setText("CAN'T GO OUT");
                 Result.setTextColor(Color.RED);
             }
-            else if((LPAndDateInfo.Digit4 == 5 || LPAndDateInfo.Digit4 == 6) && LPAndDateInfo.DayOfWeek == 4){
+            else if((LPAndDateInfo.getDigit4() == 5 || LPAndDateInfo.getDigit4() == 6) && LPAndDateInfo.getDayOfWeek() == 4){
                 Result.setText("CAN'T GO OUT");
                 Result.setTextColor(Color.RED);
             }
-            else if((LPAndDateInfo.Digit4 == 7 || LPAndDateInfo.Digit4 == 8) && LPAndDateInfo.DayOfWeek == 5){
+            else if((LPAndDateInfo.getDigit4() == 7 || LPAndDateInfo.getDigit4() == 8) && LPAndDateInfo.getDayOfWeek() == 5){
                 Result.setText("CAN'T GO OUT");
                 Result.setTextColor(Color.RED);
             }
-            else if((LPAndDateInfo.Digit4 == 9 || LPAndDateInfo.Digit4 == 0) && LPAndDateInfo.DayOfWeek == 6){
+            else if((LPAndDateInfo.getDigit4() == 9 || LPAndDateInfo.getDigit4() == 0) && LPAndDateInfo.getDayOfWeek() == 6){
                 Result.setText("CAN'T GO OUT");
                 Result.setTextColor(Color.RED);
             }

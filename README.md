@@ -9,7 +9,7 @@ THIS PROJECT HAS TWO VERSIONS
 
 UserFriendlyVersion:
 
-is the first final and fully functional iteration of the project and implements what, for my criteria, could be the best Input method for the solution, 
+is the first fully functional iteration of the project and implements what, for my criteria, could be the best Input method for the solution, 
 hence the name, it still has room for improvement to avoid code repetition on ResultActivity, it has some unused commented code, Logs and does not implement getters.
 
 

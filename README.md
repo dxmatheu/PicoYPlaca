@@ -1,5 +1,5 @@
 # PicoYPlacaForStackBuilders
-A predictor that given a license plata number, a date and a time tells if the car with that lisence plate can go out considering the Pico y Placa restrictions
+A predictor that given a license plate number, a date and a time. Tells if the car with that license plate can go out considering the Pico y Placa restrictions
 
 This code was written for Android API 26 of higher. It was written in Android Studio so I recommend compiling the project with the same IDE. 
 Project should run on anny Gradle Script interpreter. 

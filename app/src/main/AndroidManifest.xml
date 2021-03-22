@@ -11,9 +11,6 @@
         android:theme="@style/Theme.PicoYPlacaForStackBuilders">
         <activity android:name=".ResultActivity"
             android:parentActivityName=".MainActivity"/>
-        <activity
-            android:name=".ShowResult"
-            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

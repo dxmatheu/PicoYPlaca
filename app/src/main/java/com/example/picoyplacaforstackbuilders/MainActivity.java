@@ -8,7 +8,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -18,14 +17,13 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.time.Year;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText DateAndTime;
     Button CheckBtn;
-    private LicensePlateAndDateInfo LPandDateInfo = LicensePlateAndDateInfo.getInstance();
+    private LicensePlateAndDateInfo LPAndDateInfo = LicensePlateAndDateInfo.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,30 +48,28 @@ public class MainActivity extends AppCompatActivity {
         LicenseDigit1.setOnValueChangedListener(new NumberPicker.OnValueChangeListener(){
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                LPandDateInfo.setDigit1(newVal);
-                Log.e("flag for number picker: ", String.valueOf(newVal));
+                LPAndDateInfo.setDigit1(newVal);
             }
         });
 
         LicenseDigit2.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                LPandDateInfo.setDigit2(newVal);
-                Log.e("flag for number picker: ", String.valueOf(LPandDateInfo.Digit2));
+                LPAndDateInfo.setDigit2(newVal);
             }
         });
 
         LicenseDigit3.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                LPandDateInfo.setDigit3(newVal);
+                LPAndDateInfo.setDigit3(newVal);
             }
         });
 
         LicenseDigit4.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                LPandDateInfo.setDigit4(newVal);
+                LPAndDateInfo.setDigit4(newVal);
             }
         });
 
@@ -93,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void ButtonClicked(View view) {
 
-        if(LPandDateInfo.DayOfWeek != -1 && LPandDateInfo.Hour != -1){
+        if(LPAndDateInfo.DayOfWeek != -1 && LPAndDateInfo.Hour != -1){
             startActivity(new Intent(this, ResultActivity.class));
         }
         else{
@@ -110,19 +106,15 @@ public class MainActivity extends AppCompatActivity {
                 calendar.set(Calendar.YEAR,year);
                 calendar.set(Calendar.MONTH,month);
                 calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-                LPandDateInfo.setDayOfWeek(calendar.get(Calendar.DAY_OF_WEEK));
-                Log.e("day of month ", String.valueOf(calendar.get(Calendar.DAY_OF_WEEK)));
-
+                LPAndDateInfo.setDayOfWeek(calendar.get(Calendar.DAY_OF_WEEK));
 
                 TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                        LPandDateInfo.setHour(calendar.get(Calendar.HOUR_OF_DAY));
-                        Log.e("hour of day ", String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)));
+                        LPAndDateInfo.setHour(calendar.get(Calendar.HOUR_OF_DAY));
                         calendar.set(Calendar.MINUTE,minute);
-                        LPandDateInfo.setMinute(calendar.get(Calendar.MINUTE));
-                        Log.e("minute of hour ", String.valueOf(calendar.get(Calendar.MINUTE)));
+                        LPAndDateInfo.setMinute(calendar.get(Calendar.MINUTE));
 
                         SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd HH:mm");
 

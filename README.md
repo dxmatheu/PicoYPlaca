@@ -5,6 +5,8 @@ This code was written for Android API 26 of higher. It was written in Android St
 Project should run on anny Gradle Script interpreter. 
 It was manually tested with Android Studio's emulator and a phisical device (Xiaomi Redmi 9 Pro with Android 10).
 
+THIS PROJECT HAS TWO VERSIONS
+
 UserFriendlyVersion:
 
 is the first final and fully functional iteration of the project and implements what, for my criteria, could be the best Input method for the solution, 

@@ -45,18 +45,4 @@ public class LicensePlateAndDateInfo {
         Minute = minute;
     }
 
-    /*public LicensePlateAndDateInfo(int Digit1, int Digit2,
-                                   int Digit3, int Digit4,
-                                   int DayOfWeek, int Hour, int Minute){
-        this.Digit1 = Digit1;
-        this.Digit2 = Digit2;
-        this.Digit3 = Digit3;
-        this.Digit4 = Digit4;
-        this.DayOfWeek = DayOfWeek;
-        this.Hour = Hour;
-        this.Minute = Minute;
-    }*/
-
-
-
 }

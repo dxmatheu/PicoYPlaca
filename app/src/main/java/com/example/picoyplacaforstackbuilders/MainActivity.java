@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -16,8 +17,11 @@ import android.widget.NumberPicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -84,17 +88,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        DateET = findViewById(R.id.DateET);
         CheckBtn.setOnClickListener(this::ButtonClicked);
 
     }
 
     private void ButtonClicked(View view) {
 
-        if(LPAndDateInfo.DayOfWeek != -1 && LPAndDateInfo.Hour != -1){
-            startActivity(new Intent(this, ResultActivity.class));
+        Calendar calendar = Calendar.getInstance();
+        LPAndDateInfo.setDayOfWeek(Calendar.getInstance().get(Calendar.DAY_OF_WEEK));
+        if(!DateET.getText().toString().matches("")){
+            try {
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                calendar.setTime(dateFormat.parse(DateET.getText().toString()));
+            }
+            catch (ParseException e){
+                Toast.makeText(getApplicationContext(),"Using today's date",Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(DateET.getText().toString().matches("")){
+            Toast.makeText(getApplicationContext(),"Please fill in a date first",Toast.LENGTH_SHORT).show();
+        }
+
+        else if(LPAndDateInfo.Hour == -1){
+            Toast.makeText(getApplicationContext(),"Please pick an hour",Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(getApplicationContext(),"Please fill in a date first",Toast.LENGTH_SHORT).show();
+            LPAndDateInfo.setDayOfWeek(calendar.get(Calendar.DAY_OF_WEEK));
+            startActivity(new Intent(this, ResultActivity.class));
+
         }
 
     }

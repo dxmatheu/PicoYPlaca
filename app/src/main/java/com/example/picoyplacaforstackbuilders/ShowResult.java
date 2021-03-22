@@ -3,6 +3,7 @@ package com.example.picoyplacaforstackbuilders;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -23,25 +24,60 @@ public class ShowResult extends Activity {
         LicensePlate.setText("XXX-" + LPAndDateInfo.Digit1 + LPAndDateInfo.Digit2 + LPAndDateInfo.Digit3 + LPAndDateInfo.Digit4);
 
         if(LPAndDateInfo.DayOfWeek == 1){
-            DateAndTime.setText("On: Sunday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+            Log.e("Check minutes: ", String.valueOf(LPAndDateInfo.Minute));
+            if(LPAndDateInfo.Minute <= 9){
+                Log.e("Check minutes: ", String.valueOf(LPAndDateInfo.Minute));
+                DateAndTime.setText("On: Sunday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+            }
+            else
+                DateAndTime.setText("On: Sunday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
         }
         else if(LPAndDateInfo.DayOfWeek == 2){
-            DateAndTime.setText("On: Monday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+            Log.e("Check minutes: ", String.valueOf(LPAndDateInfo.Minute));
+            if(LPAndDateInfo.Minute <= 9){
+                DateAndTime.setText("On: Monday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+            }
+            else
+                DateAndTime.setText("On: Monday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
         }
         else if(LPAndDateInfo.DayOfWeek == 3){
-            DateAndTime.setText("On: Tuesday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+            Log.e("Check minutes: ", String.valueOf(LPAndDateInfo.Minute));
+            if(LPAndDateInfo.Minute <= 9){
+                DateAndTime.setText("On: Tuesday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+            }
+            else
+                DateAndTime.setText("On: Tuesday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
         }
         else if(LPAndDateInfo.DayOfWeek == 4){
-            DateAndTime.setText("On: Wednesday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+            Log.e("Check minutes: ", String.valueOf(LPAndDateInfo.Minute));
+            if(LPAndDateInfo.Minute <= 9){
+                DateAndTime.setText("On: Wednesday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+            }
+            else
+                DateAndTime.setText("On: Wednesday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
         }
         else if(LPAndDateInfo.DayOfWeek == 5){
-            DateAndTime.setText("On: Thursday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+            Log.e("Check minutes: ", String.valueOf(LPAndDateInfo.Minute));
+            if(LPAndDateInfo.Minute <= 9){
+                DateAndTime.setText("On: Thursday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+            }
+            else
+                DateAndTime.setText("On: Thursday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
         }
         else if(LPAndDateInfo.DayOfWeek == 6){
-            DateAndTime.setText("On: Friday" + "  at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+            Log.e("Check minutes: ", String.valueOf(LPAndDateInfo.Minute));
+            if(LPAndDateInfo.Minute <= 9){
+                DateAndTime.setText("On: Friday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+            }
+            else
+                DateAndTime.setText("On: Friday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
         }
         else if(LPAndDateInfo.DayOfWeek == 7){
-            DateAndTime.setText("On: Saturday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
+            if(LPAndDateInfo.Minute <= 9){
+                DateAndTime.setText("On: Saturday" + " at: " + LPAndDateInfo.Hour + "H0" + LPAndDateInfo.Minute);
+            }
+            else
+                DateAndTime.setText("On: Saturday" + " at: " + LPAndDateInfo.Hour + "H" + LPAndDateInfo.Minute);
         }
 
         if(LPAndDateInfo.Hour >= 7 && LPAndDateInfo.Hour <= 9 && LPAndDateInfo.Minute <= 30

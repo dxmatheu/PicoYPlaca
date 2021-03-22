@@ -16,5 +16,5 @@ hence the name, it still has room for improvement to avoid code repetition on Re
 
 VersionWithMailSpecifications:
 
-is a branch from UserFriendlyVersion implementing a solution with a specific set of requirements, has a cleaner code but also still has room for
+is a branch from UserFriendlyVersion implementing a solution considering that the date input has to be a String. Has a cleaner code but also still has room for
 improvement to augment sophistication.

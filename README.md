@@ -18,3 +18,9 @@ VersionWithMailSpecifications:
 
 is a branch from UserFriendlyVersion implementing a solution considering that the date input has to be a String. Has a cleaner code but also still has room for
 improvement to augment sophistication.
+
+##REVIEW 24/02/10
+
+Things to improve this project:
+- checker for updates on AMT official page (https://www.amt.gob.ec/index.php/informacion/pico-y-placa/)
+- 
